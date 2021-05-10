@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Table, Form } from 'react-bootstrap';
+import { Table, Form, Spinner } from 'react-bootstrap';
 
 const ProjectTable = () => {
   const projects = useSelector((state) => state.projects);
@@ -20,6 +20,7 @@ const ProjectTable = () => {
   }
 
   return(
+    !projects.length ? <Spinner animation="border" /> : 
     <div>
       <Table>
         <thead>
